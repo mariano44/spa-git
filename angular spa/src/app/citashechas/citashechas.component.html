@@ -1,0 +1,26 @@
+<div class="container">
+  <button class="btn btn-outline-success me-2 div-nav btn-lg"  type="button" (click)="volverPaquetes()">Volver</button>
+  <h2>Lista de Citas</h2>
+  <input type="text" style="padding:8px;margin:15px auto;width:30%;" placeholder="Buscar por nombre..."
+    (keyup)="updateFilter($event)" />
+  <ngx-datatable #tablaCitas class="bootstrap" [columns]="columns" [columnMode]="ColumnMode.force" [headerHeight]="50"
+    [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="citas">
+    <ngx-datatable-column name="Nombre" prop='nombre'>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Paquete" prop='paquete'>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Atiende" prop='atiende'>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Fecha" prop='fecha'>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Hora" prop='hora'>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Acciones" prop="id">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+        <button type="button" class="btn btn-outline-success" (click)='editarCita(value)'>Editar</button>
+        <button type="button" class="btn btn-outline-danger" (click)='eliminarCita(value)'>Eliminar</button>
+      </ng-template>
+    </ngx-datatable-column>
+    
+  </ngx-datatable>
+</div>

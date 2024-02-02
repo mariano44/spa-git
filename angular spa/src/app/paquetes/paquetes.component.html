@@ -1,0 +1,18 @@
+
+<button class="btn btn-outline-success me-2 div-nav btn-lg"  type="button" (click)="citashechas()">Ver citas</button>
+
+<div class="paquetes-container" >
+    
+    <h2 class="display-4 titulo">Luxury Spa</h2>
+    <h3>Paquetes y precios</h3>
+    <div *ngFor="let paquete of paquetes"  class="paquete-item">
+      <div class="info-container">
+        <h3>{{ paquete.nombre }}</h3>
+        <p>{{ paquete.descripcion }}</p>
+        <p class="precio">${{ paquete.precio  }}</p>
+        <button class="btn btn-secondary" (click)="crearCita(paquete.nombre)" >Crear Cita</button>
+      </div>
+      <img [src]="paquete.imagenUrl" alt="{{ paquete.nombre }}" class="paquete-imagen .img-thumbnail">
+    </div>
+  </div>
+  
